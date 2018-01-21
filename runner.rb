@@ -1,8 +1,10 @@
 require 'unirest'
 
 system "clear"
-
+puts "============================"
 puts "Welcome to my Contacts app!"
+puts "============================"
+
 puts "Choose an option:"
 puts "      [1] Show all contacts"
 puts "      [2] Show one contact"
