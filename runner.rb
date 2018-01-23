@@ -33,6 +33,9 @@ elsif input_option == "3"
   print "First Name: "
   client_params[:first_name] = gets.chomp
 
+  print "Middle Name: "
+  client_params[:middle_name] = gets.chomp
+
   print "Last Name: "
   client_params[:last_name] = gets.chomp
 
@@ -41,6 +44,9 @@ elsif input_option == "3"
 
   print "Phone Number: "
   client_params[:phone_number] = gets.chomp 
+
+  print "Bio: "
+  client_params[:bio] = gets.chomp
 
   response = Unirest.post(
                           "http://localhost:3000/contacts",
@@ -62,6 +68,9 @@ elsif input_option == "4"
   print "First Name (#{contact["first_name"]}): "
   client_params[:first_name] = gets.chomp
 
+  print "Middle Name (#{contact["middle_name"]}): "
+  client_params[:last_name] = gets.chomp
+
   print "Last Name (#{contact["last_name"]}): "
   client_params[:last_name] = gets.chomp
 
@@ -70,6 +79,9 @@ elsif input_option == "4"
 
   print "Phone Number (#{contact["phone_number"]}): "
   client_params[:phone_number] = gets.chomp 
+
+  print "Bio (#{contact["bio"]}): "
+  client_params[:bio] = gets.chomp 
 
   response = Unirest.patch(
                           "http://localhost:3000/contacts/#{input_id}",
