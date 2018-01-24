@@ -52,9 +52,16 @@ elsif input_option == "3"
                           "http://localhost:3000/contacts",
                           parameters: client_params
                           )
-  contact_data = response.body
 
-  puts JSON.pretty_generate(contact_data)
+  if response.code == 200
+    contact_data = response.body
+    puts JSON.pretty_generate(contact_data)
+  else 
+    errors = response.body["errors"]
+    errors.each do |error|
+      puts error
+    end 
+  end 
 
 elsif input_option == "4"
   print "Enter an id: "
@@ -90,9 +97,15 @@ elsif input_option == "4"
 
   client_params.delete_if { |key, value| value.empty? }
 
-  contact_data = response.body
-
-  puts JSON.pretty_generate(contact_data)
+  if response.code == 200 
+    contact_data = response.body
+    puts JSON.pretty_generate(contact_data)
+  else 
+    errors = response.body["errors"]
+    errors.each do |error|
+      puts error
+    end 
+  end
 
 elsif input_option == "5"
   print "Enter an id: "
